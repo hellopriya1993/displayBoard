@@ -18,8 +18,8 @@
  * When match is finished display the winner 
  
  # How to run :
- Run ScoreBoardRenderer.java and provide the inputs in console 
- **Note: This would require JDK8 and beyond and Junit5 to compile and run **
+    Run ScoreBoardRenderer.java and provide the inputs in console
+    ** Note: This would require JDK8 and beyond and Junit5 to compile and run 
  
          
 
