@@ -1,5 +1,9 @@
 package com.board.ball;
 
+/**
+ * This class is to get Event associated with each ball
+ *
+ */
 public class BallEvent {
 
     private BallType ballType;
@@ -22,6 +26,10 @@ public class BallEvent {
         return ballType;
     }
 
+    /**
+     *
+     * @return BallType
+     */
     private BallType assignBallType(String ball){
         if(ball.equals(BallType.W.name())){
             return BallType.W;

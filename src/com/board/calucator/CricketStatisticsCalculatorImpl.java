@@ -10,24 +10,17 @@ public class CricketStatisticsCalculatorImpl implements StatisticsCalulator {
     @Override
     public void calculateStatistics(Team team, BallEvent ballEvent) {
         CricketTeam cricketTeam = (CricketTeam) team;
-        switch (ballEvent.getBallType()){
-            case NB:
-                handleNoBall(cricketTeam);
-                break;
-            case WD:
-                handleWideBall(cricketTeam);
-                break;
-            case W:
-                handleWideBall(cricketTeam);
-                break;
-            default:
-                handleRun(cricketTeam,ballEvent.getRun());
-            }
+        switch (ballEvent.getBallType()) {
+            case NB -> handleNoBall(cricketTeam);
+            case WD -> handleWideBall(cricketTeam);
+            case W -> handleWicket(cricketTeam);
+            default -> handleRun(cricketTeam, ballEvent.getRun());
+        }
         }
 
 
     private void handleWideBall(CricketTeam team){
-        updateScore((CricketPlayer)team.getBattingPlayer(),1 );
+        updateScore(team.getBattingPlayer(),1 );
     }
 
     private void handleNoBall(CricketTeam team){
@@ -38,13 +31,13 @@ public class CricketStatisticsCalculatorImpl implements StatisticsCalulator {
         team.getBattingPlayer().setCurrentlyPlaying(false);
         int nextPlayerPosition=team.getNextPlayerPosition();
         if(nextPlayerPosition<team.getPlayerList().size()){
-            team.setBattingPlayer((CricketPlayer) team.getPlayerList().get(nextPlayerPosition));
+            team.setBattingPlayer(team.getPlayerList().get(nextPlayerPosition));
             team.setNextPlayerPosition(++nextPlayerPosition);
         }
     }
 
     private void handleRun(CricketTeam team,int run){
-        updateScore((CricketPlayer)team.getBattingPlayer(),run );
+        updateScore(team.getBattingPlayer(),run );
         team.setTotalScore(team.getTotalScore()+run);
         if(run==1||run==3){
             CricketPlayer player=team.getBattingPlayer();
@@ -61,7 +54,7 @@ public class CricketStatisticsCalculatorImpl implements StatisticsCalulator {
         if(run==4){
             player.setNoOfFours(player.getNoOfFours()+1);
         }else if(run==6){
-            player.setNoOfFours(player.getNoOfSix()+1);
+            player.setNoOfSix(player.getNoOfSix()+1);
         }
 
         return player;
