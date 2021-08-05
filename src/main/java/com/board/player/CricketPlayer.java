@@ -51,4 +51,20 @@ public class CricketPlayer extends Player {
     public void setCurrentlyPlaying(boolean currentlyPlaying) {
         isCurrentlyPlaying = currentlyPlaying;
     }
+
+    public void updateNoOfBalls() {
+        this.noOfBalls++;
+    }
+
+    public void updateFours() {
+        this.noOfFours++;
+    }
+
+    public void updateSix() {
+        this.noOfSix++;
+    }
+
+    public void updateTotalScore(int run) {
+        this.totalScore += run;
+    }
 }

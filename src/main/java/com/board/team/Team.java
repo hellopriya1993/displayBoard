@@ -1,10 +1,5 @@
 package com.board.team;
 
-import com.board.player.CricketPlayer;
-import com.board.player.Player;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Team {
 

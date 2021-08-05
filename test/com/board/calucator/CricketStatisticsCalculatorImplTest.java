@@ -1,37 +1,36 @@
 package com.board.calucator;
 
 import com.board.ball.BallEvent;
+import com.board.exceptions.InningsOverException;
 import com.board.player.CricketPlayer;
 import com.board.team.CricketTeam;
-
 import org.junit.jupiter.api.Test;
 
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CricketStatisticsCalculatorImplTest {
 
     @Test
-    public void testCalculateStatisticsForWide(){
-        CricketStatisticsCalculatorImpl statisticsCalculator =new CricketStatisticsCalculatorImpl();
-        CricketTeam cricketTeam =new CricketTeam();
-        CricketPlayer player1= new CricketPlayer("P1");
+    public void testCalculateStatisticsForWide() throws InningsOverException {
+        CricketStatisticsCalculatorImpl statisticsCalculator = new CricketStatisticsCalculatorImpl();
+        CricketTeam cricketTeam = new CricketTeam();
+        CricketPlayer player1 = new CricketPlayer("P1");
         player1.setCurrentlyPlaying(true);
         cricketTeam.addPlayers(player1);
         cricketTeam.setBattingPlayer(player1);
 
-        CricketPlayer player2= new CricketPlayer("P2");
+        CricketPlayer player2 = new CricketPlayer("P2");
         player2.setCurrentlyPlaying(true);
         cricketTeam.addPlayers(player2);
         cricketTeam.setPitchPlayer(player2);
 
-        CricketPlayer player3= new CricketPlayer("P3");
+        CricketPlayer player3 = new CricketPlayer("P3");
         cricketTeam.addPlayers(player3);
 
 
         BallEvent ballEvent = new BallEvent("WD");
 
-        statisticsCalculator.calculateStatistics(cricketTeam,ballEvent);
+        statisticsCalculator.calculateStatistics(cricketTeam, ballEvent);
 
         assertEquals(player1, cricketTeam.getBattingPlayer());
         assertEquals(1, cricketTeam.getBattingPlayer().getTotalScore());
@@ -40,25 +39,25 @@ class CricketStatisticsCalculatorImplTest {
     }
 
     @Test
-    public void testCalculateStatisticsForSix(){
-        CricketStatisticsCalculatorImpl statisticsCalculator =new CricketStatisticsCalculatorImpl();
-        CricketTeam cricketTeam =new CricketTeam();
-        CricketPlayer player1= new CricketPlayer("P1");
+    public void testCalculateStatisticsForSix() throws InningsOverException {
+        CricketStatisticsCalculatorImpl statisticsCalculator = new CricketStatisticsCalculatorImpl();
+        CricketTeam cricketTeam = new CricketTeam();
+        CricketPlayer player1 = new CricketPlayer("P1");
         player1.setCurrentlyPlaying(true);
         cricketTeam.addPlayers(player1);
         cricketTeam.setBattingPlayer(player1);
 
-        CricketPlayer player2= new CricketPlayer("P2");
+        CricketPlayer player2 = new CricketPlayer("P2");
         player2.setCurrentlyPlaying(true);
         cricketTeam.addPlayers(player2);
         cricketTeam.setPitchPlayer(player2);
 
-        CricketPlayer player3= new CricketPlayer("P3");
+        CricketPlayer player3 = new CricketPlayer("P3");
         cricketTeam.addPlayers(player3);
 
         BallEvent ballEvent = new BallEvent("6");
 
-        statisticsCalculator.calculateStatistics(cricketTeam,ballEvent);
+        statisticsCalculator.calculateStatistics(cricketTeam, ballEvent);
 
         assertEquals(player1, cricketTeam.getBattingPlayer());
         assertEquals(6, cricketTeam.getBattingPlayer().getTotalScore());
@@ -69,26 +68,26 @@ class CricketStatisticsCalculatorImplTest {
 
 
     @Test
-    public void testCalculateStatisticsForFour(){
-        CricketStatisticsCalculatorImpl statisticsCalculator =new CricketStatisticsCalculatorImpl();
-        CricketTeam cricketTeam =new CricketTeam();
-        CricketPlayer player1= new CricketPlayer("P1");
+    public void testCalculateStatisticsForFour() throws InningsOverException {
+        CricketStatisticsCalculatorImpl statisticsCalculator = new CricketStatisticsCalculatorImpl();
+        CricketTeam cricketTeam = new CricketTeam();
+        CricketPlayer player1 = new CricketPlayer("P1");
         player1.setCurrentlyPlaying(true);
         cricketTeam.addPlayers(player1);
         cricketTeam.setBattingPlayer(player1);
 
-        CricketPlayer player2= new CricketPlayer("P2");
+        CricketPlayer player2 = new CricketPlayer("P2");
         player2.setCurrentlyPlaying(true);
         cricketTeam.addPlayers(player2);
         cricketTeam.setPitchPlayer(player2);
 
-        CricketPlayer player3= new CricketPlayer("P3");
+        CricketPlayer player3 = new CricketPlayer("P3");
         cricketTeam.addPlayers(player3);
 
 
         BallEvent ballEvent = new BallEvent("4");
 
-        statisticsCalculator.calculateStatistics(cricketTeam,ballEvent);
+        statisticsCalculator.calculateStatistics(cricketTeam, ballEvent);
 
         assertEquals(player1, cricketTeam.getBattingPlayer());
         assertEquals(4, cricketTeam.getBattingPlayer().getTotalScore());
@@ -96,25 +95,25 @@ class CricketStatisticsCalculatorImplTest {
     }
 
     @Test
-    public void testCalculateStatisticsForTwo(){
-        CricketStatisticsCalculatorImpl statisticsCalculator =new CricketStatisticsCalculatorImpl();
-        CricketTeam cricketTeam =new CricketTeam();
-        CricketPlayer player1= new CricketPlayer("P1");
+    public void testCalculateStatisticsForTwo() throws InningsOverException {
+        CricketStatisticsCalculatorImpl statisticsCalculator = new CricketStatisticsCalculatorImpl();
+        CricketTeam cricketTeam = new CricketTeam();
+        CricketPlayer player1 = new CricketPlayer("P1");
         player1.setCurrentlyPlaying(true);
         cricketTeam.addPlayers(player1);
         cricketTeam.setBattingPlayer(player1);
 
-        CricketPlayer player2= new CricketPlayer("P2");
+        CricketPlayer player2 = new CricketPlayer("P2");
         player2.setCurrentlyPlaying(true);
         cricketTeam.addPlayers(player2);
         cricketTeam.setPitchPlayer(player2);
 
-        CricketPlayer player3= new CricketPlayer("P3");
+        CricketPlayer player3 = new CricketPlayer("P3");
         cricketTeam.addPlayers(player3);
 
         BallEvent ballEvent = new BallEvent("2");
 
-        statisticsCalculator.calculateStatistics(cricketTeam,ballEvent);
+        statisticsCalculator.calculateStatistics(cricketTeam, ballEvent);
 
         assertEquals(player1, cricketTeam.getBattingPlayer());
         assertEquals(2, cricketTeam.getBattingPlayer().getTotalScore());
@@ -124,25 +123,25 @@ class CricketStatisticsCalculatorImplTest {
 
 
     @Test
-    public void testCalculateStatisticsForOne(){
-        CricketStatisticsCalculatorImpl statisticsCalculator =new CricketStatisticsCalculatorImpl();
-        CricketTeam cricketTeam =new CricketTeam();
-        CricketPlayer player1= new CricketPlayer("P1");
+    public void testCalculateStatisticsForOne() throws InningsOverException {
+        CricketStatisticsCalculatorImpl statisticsCalculator = new CricketStatisticsCalculatorImpl();
+        CricketTeam cricketTeam = new CricketTeam();
+        CricketPlayer player1 = new CricketPlayer("P1");
         player1.setCurrentlyPlaying(true);
         cricketTeam.addPlayers(player1);
         cricketTeam.setBattingPlayer(player1);
 
-        CricketPlayer player2= new CricketPlayer("P2");
+        CricketPlayer player2 = new CricketPlayer("P2");
         player2.setCurrentlyPlaying(true);
         cricketTeam.addPlayers(player2);
         cricketTeam.setPitchPlayer(player2);
 
-        CricketPlayer player3= new CricketPlayer("P3");
+        CricketPlayer player3 = new CricketPlayer("P3");
         cricketTeam.addPlayers(player3);
 
         BallEvent ballEvent = new BallEvent("1");
 
-        statisticsCalculator.calculateStatistics(cricketTeam,ballEvent);
+        statisticsCalculator.calculateStatistics(cricketTeam, ballEvent);
 
         assertEquals(player2, cricketTeam.getBattingPlayer());
         assertEquals(player1, cricketTeam.getPitchPlayer());
@@ -152,26 +151,26 @@ class CricketStatisticsCalculatorImplTest {
     }
 
     @Test
-    public void testCalculateStatisticsForWicket(){
-        CricketStatisticsCalculatorImpl statisticsCalculator =new CricketStatisticsCalculatorImpl();
-        CricketTeam cricketTeam =new CricketTeam();
-        CricketPlayer player1= new CricketPlayer("P1");
+    public void testCalculateStatisticsForWicket() throws InningsOverException {
+        CricketStatisticsCalculatorImpl statisticsCalculator = new CricketStatisticsCalculatorImpl();
+        CricketTeam cricketTeam = new CricketTeam();
+        CricketPlayer player1 = new CricketPlayer("P1");
         player1.setCurrentlyPlaying(true);
         cricketTeam.addPlayers(player1);
         cricketTeam.setBattingPlayer(player1);
 
-        CricketPlayer player2= new CricketPlayer("P2");
+        CricketPlayer player2 = new CricketPlayer("P2");
         player2.setCurrentlyPlaying(true);
         cricketTeam.addPlayers(player2);
         cricketTeam.setPitchPlayer(player2);
 
-        CricketPlayer player3= new CricketPlayer("P3");
+        CricketPlayer player3 = new CricketPlayer("P3");
         cricketTeam.addPlayers(player3);
 
         cricketTeam.setNextPlayerPosition(2);
         BallEvent ballEvent = new BallEvent("W");
 
-        statisticsCalculator.calculateStatistics(cricketTeam,ballEvent);
+        statisticsCalculator.calculateStatistics(cricketTeam, ballEvent);
 
         assertEquals(player3, cricketTeam.getBattingPlayer());
         assertEquals(player2, cricketTeam.getPitchPlayer());

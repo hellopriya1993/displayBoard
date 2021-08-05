@@ -5,5 +5,5 @@ package com.board.ball;
  * ball of cricket
  */
 public enum BallType {
-    W,WD,NB,RUN
+    W, WD, NB, RUN
 }
