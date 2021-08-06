@@ -9,7 +9,8 @@ public class CricketTeamManager implements TeamManager {
 
     public CricketTeam createTeam(List<String> names, int teamNo) {
         CricketTeam cricketTeam = new CricketTeam();
-        cricketTeam.setName("Team" + teamNo + 1);
+        teamNo++;
+        cricketTeam.setName("Team" + teamNo);
         for (int i = 0; i < names.size(); i++) {
             CricketPlayer cricketPlayer = new CricketPlayer(names.get(i));
             if (i == 0 || i == 1) {

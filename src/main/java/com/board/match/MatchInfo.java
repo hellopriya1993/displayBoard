@@ -4,6 +4,7 @@ import com.board.ball.BallEvent;
 import com.board.calucator.CricketStatisticsCalculatorImpl;
 import com.board.displayboard.CricketDisplayBoardImpl;
 import com.board.exceptions.InningsOverException;
+import com.board.exceptions.MatchOverException;
 import com.board.team.CricketTeam;
 import com.board.team.CricketTeamManager;
 import com.board.team.Team;
@@ -40,8 +41,9 @@ public class MatchInfo {
         return team;
     }
 
-    public void calculateStatisticsForTeam(Team team, BallEvent ballEvent) throws InningsOverException {
+    public void calculateStatisticsForTeam(Team team, BallEvent ballEvent) throws InningsOverException, MatchOverException {
         statisticsCalculator.calculateStatistics(team, ballEvent);
+        checkMatchOver(team);
     }
 
     public void displayTeamScore(Team team) {
@@ -63,6 +65,16 @@ public class MatchInfo {
             displayBoard.displayWinner(this.winningTeam, this.runDiff);
         }
 
+    }
+
+    public void checkMatchOver(Team team) throws MatchOverException {
+        if (!getTeam1().equals(team) && getTeam1().getTotalScore() < team.getTotalScore()) {
+            throw new MatchOverException();
+        }
+    }
+
+    private Team getTeam1() {
+        return listOfTeams[0];
     }
 
 }
